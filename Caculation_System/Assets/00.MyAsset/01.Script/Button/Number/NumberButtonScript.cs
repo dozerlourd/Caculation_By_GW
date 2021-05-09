@@ -13,6 +13,7 @@ public class NumberButtonScript : MonoBehaviour
 
     public void OnClickNumberButton(int num)
     {
+        calcSystem.IsOperator = false;
         calcSystem.Calc = num.ToString();
     }
 }

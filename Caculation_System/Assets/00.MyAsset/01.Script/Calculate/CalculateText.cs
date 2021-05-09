@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class CalculateText : JHS.TextController
 {
-    protected override string WriteText => string.Join("",CalculateSystem.Instance.NumberList);
+    [SerializeField] bool isResult = false;
+    protected override string WriteText => isResult ? CalculateSystem.Instance.Result.ToString() : string.Join("", CalculateSystem.Instance.NumberList);
 }

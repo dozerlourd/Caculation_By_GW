@@ -8,7 +8,7 @@ public class OperatorButtonScript : MonoBehaviour
 
     private void Awake()
     {
-         calcSystem = CalculateSystem.Instance;
+        calcSystem = CalculateSystem.Instance;
     }
 
     public void OnClickOperatorButton(string op)
@@ -18,15 +18,17 @@ public class OperatorButtonScript : MonoBehaviour
             // 앞 (의 개수를 파악한 후 (보다 )가 더 많을 경우 리턴함
         }
         calcSystem.Calc = op;
+        calcSystem.IsOperator = true;
     }
 
     public void OnClickResultButton()
     {
-        
+        calcSystem.DeriveResult();
     }
 
     public void OnClickClearButton()
     {
+        if (calcSystem.NumberList.Count == 0) { return; }
         calcSystem.NumberList.Clear();
         calcSystem.RefreshCalculateUI();
     }
@@ -35,5 +37,6 @@ public class OperatorButtonScript : MonoBehaviour
     {
         calcSystem.NumberList.RemoveAt(calcSystem.NumberList.Count - 1);
         calcSystem.RefreshCalculateUI();
+        calcSystem.IsOperator = false;
     }
 }
