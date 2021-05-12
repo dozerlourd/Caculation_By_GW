@@ -30,6 +30,7 @@ public class OperatorButtonScript : MonoBehaviour
     {
         if (calcSystem.NumberList.Count == 0) { return; }
         calcSystem.NumberList.Clear();
+        calcSystem.ResultList.Clear();
         calcSystem.RefreshCalculateUI();
     }
 
